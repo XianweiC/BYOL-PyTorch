@@ -8,6 +8,14 @@ This repository contains training pipeline for BYOL, and I reimplement it with P
 
 ## Run on your machine
 
+I recommand you to put your dataset into `./data/xxx`:
+
+```
+./data/STL-10
+./data/CIFAR-10
+...
+```
+
 You need first create environment and then run `train.sh`:
 
 ```bash
