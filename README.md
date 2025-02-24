@@ -2,7 +2,7 @@
 
 PyTorch implementation of [Bootstrap Your Own Latent: A New Approach to Self-Supervised Learning](https://arxiv.org/abs/2006.07733).
 
-![image-20250224113829527](/Users/xianweicao/Library/Application Support/typora-user-images/image-20250224113829527.png)
+![image-20250224113829527](/Users/xianweicao/Documents/workspace/SSL/static/pipeline.png)
 
 This repository contains training pipeline for BYOL, and I reimplement it with PyTorch. It support CIFAR-10, CIFAR-100, STL-10, TinyImageNet-200 and ImageNet. It also provides the linear probing code, which I borrow from [sthalles](https://github.com/sthalles/PyTorch-BYOL). Thanks for their excellent project :)
 
