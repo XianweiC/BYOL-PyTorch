@@ -1,0 +1,8 @@
+.DS_Store
+/.idea
+__pycache__
+/checkpoints
+/.ipynb_checkpoints
+*.ipynb
+debug.py
+/wandb
