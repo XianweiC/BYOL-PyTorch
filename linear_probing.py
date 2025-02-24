@@ -17,8 +17,8 @@ if __name__ == "__main__":
 
     batch_size = 512
 
-    train_set = STL10(root='./data/STL10', train=True, transform=get_transforms('test', 96, 96))
-    test_set = STL10(root='./data/STL10', train=False, transform=get_transforms('test', 96, 96))
+    train_set = STL10(root='/Users/xianweicao/Documents/workspace/Dataset/STL-10', train=True, transform=get_transforms('val', 96, 96))
+    test_set = STL10(root='/Users/xianweicao/Documents/workspace/Dataset/STL-10', train=False, transform=get_transforms('val', 96, 96))
 
     print("Input shape:", train_set[0][0].shape)
 
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     encoder = nn.Sequential(ResNet(), MLP(output_channels=128))
     # encoder = ResNet()
 
-    params = torch.load('checkpoints/stl10_ssl/checkpoints/143837/model-final.pth')
+    params = torch.load('checkpoints/BYOL/STL-10/2025_40_256_2048_256_256/113741/model-final.pth', weights_only=True)
     print(encoder.load_state_dict(params, strict=False))
     encoder = nn.Sequential(*list(encoder.children())[:-1])
     encoder = encoder.to(device)
@@ -59,7 +59,6 @@ if __name__ == "__main__":
         test = torch.utils.data.TensorDataset(X_test, y_test)
         test_loader = torch.utils.data.DataLoader(test, batch_size=512, shuffle=False)
         return train_loader, test_loader
-
 
     scaler = preprocessing.StandardScaler()
     scaler.fit(x_train.cpu().numpy())

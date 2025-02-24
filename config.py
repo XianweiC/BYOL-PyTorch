@@ -7,7 +7,7 @@ def get_args():
     parser.add_argument('--model_name', type=str, default='BYOL', help='The name of models', choices=['Supervised', 'BYOL', 'SimSiam'],
                         # required=True
                         )
-    parser.add_argument('--dataset', type=str, default='CIFAR-10', choices=['CIFAR-10', 'STL-10', 'CIFAR-100', 'Tiny-Imagenet-200'],
+    parser.add_argument('--dataset', type=str, default='STL-10', choices=['CIFAR-10', 'STL-10', 'CIFAR-100', 'Tiny-Imagenet-200'],
                         # required=True
                         )
     parser.add_argument('--random_seed', type=int, default=2025, metavar='S', help='Random seed')

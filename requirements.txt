@@ -1,0 +1,12 @@
+torch~=2.5.1
+torchvision~=0.20.1
+numpy~=1.26.4
+matplotlib~=3.10.0
+opencv-python~=4.11.0.86
+albumentations~=2.0.1
+tqdm~=4.66.5
+wandb~=0.19.6
+ml-collections~=1.0.0
+timm~=1.0.14
+pillow~=11.0.0
+scikit-learn~=1.6.1

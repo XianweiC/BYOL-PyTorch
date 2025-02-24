@@ -16,14 +16,14 @@ def get_transforms(mode='train', H=32, W=32):
             A.ToGray(num_output_channels=3, p=0.2),
             A.GaussianBlur(sigma_limit=(0.1, 2.0), p=0.5),
             A.Solarize(p=0.2),
-            # A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)), # ImageNet
-            A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.247, 0.243, 0.261)), # CIFAR10
+            A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)), # ImageNet
+            # A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.247, 0.243, 0.261)), # CIFAR10
             ToTensorV2()
         ])
     elif mode == 'val':
         transform = A.Compose([
-            # A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
-            A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.247, 0.243, 0.261)),  # CIFAR10
+            A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
+            # A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.247, 0.243, 0.261)),  # CIFAR10
             ToTensorV2()
         ])
     return transform
