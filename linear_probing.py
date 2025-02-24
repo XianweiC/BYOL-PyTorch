@@ -1,6 +1,4 @@
 import argparse
-import os
-import sys
 import numpy as np
 from sklearn import preprocessing
 
@@ -14,6 +12,9 @@ from src.utils import get_features_from_encoder
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Linear probing with pre-trained model.')
+    parser.add_argument('--checkpoint', type=str, default='',)
+    args = parser.parse_args()
 
     batch_size = 512
 
@@ -30,7 +31,7 @@ if __name__ == "__main__":
     encoder = nn.Sequential(ResNet(), MLP(output_channels=128))
     # encoder = ResNet()
 
-    params = torch.load('checkpoints/BYOL/STL-10/2025_40_256_2048_256_256/113741/model-final.pth', weights_only=True)
+    params = torch.load(args.checkpoint, weights_only=True)
     print(encoder.load_state_dict(params, strict=False))
     encoder = nn.Sequential(*list(encoder.children())[:-1])
     encoder = encoder.to(device)
